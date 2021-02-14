@@ -8,7 +8,7 @@ const TodoCreate = () => {
     const { todos, setTodos, nextId } = useContext(TodoContext);
 
     const onToggle = () => setOpen(!open);
-    
+
     const onChange = useCallback(e => {
         setValue(e.target.value);
     }, []);
@@ -28,7 +28,7 @@ const TodoCreate = () => {
         onInsert(value);
         setValue('');
 
-        e.preventDefault();
+        e.preventDefault(); //새로고침 방지
     });
 
     return (
@@ -57,4 +57,4 @@ const TodoCreate = () => {
     );
 };
 
-export default TodoCreate;
+export default React.memo(TodoCreate);

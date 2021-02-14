@@ -27,4 +27,4 @@ const TodoItem = ({ id, done, text }) => {
     );
 };
 
-export default React.memo(TodoItem);
+export default React.memo(TodoItem); //불필요한 리렌더링 방지
