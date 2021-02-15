@@ -1,20 +1,20 @@
 import React from 'react';
-import TodoCreate from './components/TodoCreate';
-import TodoHead from './components/TodoHead';
-import TodoList from './components/TodoList';
-import TodoTemplate from './components/TodoTemplate';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import ErrorPage from './pages/ErrorPage';
+import LoginPage from './pages/LoginPage';
+import MainPage from './pages/MainPage';
 
 function App() {
-  
   return (
-    <>
-      <TodoTemplate>
-        <TodoHead />
-        <TodoList />
-        <TodoCreate />
-      </TodoTemplate>
-    </>
+    <BrowserRouter>
+      <Switch>
+        <Redirect path="/" to="/login" exact />
+        <Route component={LoginPage} path="/login" exact />
+        <Route component={MainPage} path="/todo-list"></Route>
+        <Route component={ErrorPage} path="*"></Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
-export default App;
+export default React.memo(App);
