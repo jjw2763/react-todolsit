@@ -3,7 +3,7 @@ const loginApi = async (axios, userid, password, setAuth) => {
     setAuth({ userid: '', token: '' });
 
     const response = await axios.get(
-      'http://localhost:5000/login',
+      '/login',
       //   'https://jsonplaceholder.typicode.com/todos/1',
       {
         userid: userid,

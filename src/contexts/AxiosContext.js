@@ -10,11 +10,10 @@ export const AxiosProvider = ({ children }) => {
   const axios_ = useMemo(
     () =>
       axios.create({
-        baseURL: 'https://test-payprotocol.teledit.com:8090',
+        baseURL: 'http://localhost:5000',
         headers: {
           Authorization: `Bearer ${auth.token}`,
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json; charset=UTF-8',
         },
       }),
     [auth],

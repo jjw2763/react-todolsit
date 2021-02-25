@@ -44,7 +44,7 @@ body {
 }
 
 #head {
-  padding-top: 48px;
+  padding-top: 18px;
   padding-left: 32px;
   padding-right: 32px;
   padding-bottom: 24px;
@@ -373,4 +373,30 @@ body {
 
 .bottomText {
   text-align: center;
+}
+
+#user_info {
+  position: absolute;
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-top: 21px;
+  padding-bottom: 21px;
+  font-weight: bold;
+  background: white;
+  border-radius: 13px;
+  margin-left: 40px;
+}
+
+#user_id {
+  color: rgb(37, 111, 223);
+  font-size: 21px;
+}
+.log_out {
+  margin-top: 10px;
+  background: #63e6be;
+  color: white;
+  align-items: center;
+  margin-left: 17px;
+  border-color: white;
+  border-radius: 5px;
 }
