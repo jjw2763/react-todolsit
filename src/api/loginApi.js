@@ -4,7 +4,6 @@ const loginApi = async (axios, userid, password, setAuth) => {
 
     const response = await axios.get(
       '/login',
-      //   'https://jsonplaceholder.typicode.com/todos/1',
       {
         userid: userid,
         password: password,
@@ -12,7 +11,7 @@ const loginApi = async (axios, userid, password, setAuth) => {
     );
     console.log(response.data.data);
 
-    if (response.data.data === 'success') {
+    if (response.data.data === 'success' && response.data.userid === 'grace09') {
       setAuth({ userid: userid, token: response.data });
     } else {
       alert('로그인에 실패하셨습니다. ');

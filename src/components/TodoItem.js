@@ -4,20 +4,14 @@ import TodoContext from '../contexts/TodoContext';
 import todosApi from '../api/todosApi';
 import todoDeleteApi from '../api/todoDeleteApi';
 import AxiosContext from '../contexts/AxiosContext';
+import todoUpdateApi from '../api/todoUpdateApi';
 
-const TodoItem = ({ id, done, text }) => {
+const TodoItem = ({ id, text, done }) => {
   const { todos, setTodos } = useContext(TodoContext);
   const { axios } = useContext(AxiosContext);
 
-  const onSearch = useCallback(() => {
-    todosApi(axios, setTodos);
-  }, [axios, setTodos]);
-
-  useEffect(() => {
-    onSearch();
-  }, [axios, setTodos, todos]);
-
   const onToggle = useCallback(() => {
+    todoUpdateApi(axios, id, !done);
     setTodos(
       todos.map((todo) =>
         todo.id === id ? { ...todo, done: !todo.done } : todo,
@@ -26,9 +20,8 @@ const TodoItem = ({ id, done, text }) => {
   }, [todos]);
 
   const onRemove = useCallback(() => {
-    // setTodos(todos.filter((todo) => todo.id !== id));
-    todoDeleteApi(axios, id, done, text);
-    onSearch();
+    todoDeleteApi(axios, id);
+    setTodos(todos.filter((todo) => todo.id !== id));
   }, [todos, axios]);
 
   return (

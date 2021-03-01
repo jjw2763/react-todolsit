@@ -7,7 +7,7 @@ import todoCreateApi from '../api/todoCreateApi';
 const TodoCreate = () => {
   const [value, setValue] = useState('');
   const [open, setOpen] = useState(false);
-  const { todos, setTodos, nextId } = useContext(TodoContext);
+  const { todos, setTodos } = useContext(TodoContext);
   const { axios } = useContext(AxiosContext);
 
   const onToggle = () => setOpen(!open);
@@ -16,28 +16,15 @@ const TodoCreate = () => {
     setValue(e.target.value);
   }, []);
 
-  // const onInsert = useCallback(text => {
-  //     const todo = {
-  //         id: nextId.current,
-  //         text,
-  //         done: false,
-  //     };
-  //     setTodos(todos.concat(todo));
-  //     nextId.current += 1;
-  // }, [todos]
-  // );
-
   const onInsert = useCallback(
     (text) => {
       const todo = {
-        id: nextId.current,
         text,
         done: false,
       };
-      // setTodos(todos.concat(todo));
+      setTodos(todos.concat(todo));
 
       todoCreateApi(axios, todo);
-      nextId.current += 1;
     },
     [todos, axios],
   );
