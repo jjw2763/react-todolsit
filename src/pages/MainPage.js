@@ -9,7 +9,7 @@ import TodoContext from '../contexts/TodoContext';
 
 const MainPage = () => {
   const { axios } = useContext(AxiosContext);
-  const { todos, setTodos } = useContext(TodoContext);
+  const { setTodos } = useContext(TodoContext);
 
   useEffect(() => {
     todosApi(axios, setTodos);

@@ -1,17 +1,16 @@
-import React, { useRef, useState, createContext } from 'react';
+import React, { useState, createContext } from 'react';
 
 const TodoContext = createContext();
 
-export const TodoProvider = ({children}) => {
-    const [todos, setTodos] = useState([]);
+export const TodoProvider = ({ children }) => {
+  const [todos, setTodos] = useState([]);
 
-    const value = {
-        todos,
-        setTodos
-    };
+  const value = {
+    todos,
+    setTodos,
+  };
 
-    return <TodoContext.Provider value={value}>{children}</TodoContext.Provider>
+  return <TodoContext.Provider value={value}>{children}</TodoContext.Provider>;
 };
 
 export default TodoContext;
-

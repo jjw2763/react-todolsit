@@ -33,8 +33,6 @@ const LoginPage = ({ history }) => {
 
   useEffect(() => {
     if (auth.token && auth.token !== '') {
-      console.log('ooo');
-      console.log(auth.token);
       history.push('/todo-list');
     }
   }, [history, auth]);
