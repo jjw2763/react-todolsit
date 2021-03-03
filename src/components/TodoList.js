@@ -1,6 +1,4 @@
-import React, { useContext, useEffect } from 'react';
-import todosApi from '../api/todosApi';
-import AxiosContext from '../contexts/AxiosContext';
+import React, { useContext } from 'react';
 import TodoContext from '../contexts/TodoContext';
 import TodoItem from './TodoItem';
 

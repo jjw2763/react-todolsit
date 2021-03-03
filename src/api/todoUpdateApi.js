@@ -1,8 +1,6 @@
 const todoUpdateApi = async (axios, todo_id, todo_done) => {
     try {
       const url = '/todos/' + todo_id;
-      console.log(url);
-  
       const response = await axios.patch(url, {
           done: todo_done
       });

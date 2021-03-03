@@ -22,18 +22,17 @@ const TodoCreate = () => {
         text,
         done: false,
       };
-      setTodos(todos.concat(todo));
 
       todoCreateApi(axios, todo);
+      setTodos(todos.concat(todo));
     },
     [todos, axios],
   );
 
   const onSubmit = useCallback((e) => {
+    e.preventDefault(); // 기본동작 하지 않도록
     onInsert(value);
     setValue('');
-
-    e.preventDefault(); //새로고침 방지
   });
 
   return (
@@ -44,10 +43,11 @@ const TodoCreate = () => {
             <input
               id="input_insert"
               autoFocus
-              placeholder="할 일을 입력 후, Enter를 누르세요"
+              placeholder="할 일을 입력 후, Enter를 누르세요" 
               value={value}
               onChange={onChange}
             />
+            {/* form 태그 내 input이 1개인 경우 엔터키를 누르면 submit 된다 */}
           </form>
         </div>
       )}

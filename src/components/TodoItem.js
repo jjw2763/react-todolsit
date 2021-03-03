@@ -1,7 +1,6 @@
-import React, { useCallback, useContext, useEffect } from 'react';
+import React, { useCallback, useContext } from 'react';
 import { MdDone, MdDelete } from 'react-icons/md';
 import TodoContext from '../contexts/TodoContext';
-import todosApi from '../api/todosApi';
 import todoDeleteApi from '../api/todoDeleteApi';
 import AxiosContext from '../contexts/AxiosContext';
 import todoUpdateApi from '../api/todoUpdateApi';
