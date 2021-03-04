@@ -4,7 +4,7 @@ const TodoContext = createContext();
 
 export const TodoProvider = ({ children }) => {
   const [todos, setTodos] = useState([]);
-  const todo_id = useRef(1);
+  const todo_id = useRef(4);
 
   const value = {
     todos,

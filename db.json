@@ -1,24 +1,19 @@
 {
   "todos": [
     {
-      "id": 1,
-      "text": "리액트 공부하기",
-      "done": true
-    },
-    {
-      "id": 2,
-      "text": "맛집 리스트 찾기",
-      "done": false
-    },
-    {
-      "id": 3,
-      "text": "영화 소울 감상평 쓰기",
-      "done": true
-    },
-    {
-      "text": "책 읽기...",
+      "text": "리액트 공부",
       "done": false,
-      "id": 4
+      "id": 1
+    },
+    {
+      "text": "맛집 탐방",
+      "done": true,
+      "id": 2
+    },
+    {
+      "text": "백오피스 개발",
+      "done": false,
+      "id": 3
     }
   ],
   "login": {
