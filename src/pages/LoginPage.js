@@ -26,13 +26,14 @@ const LoginPage = ({ history }) => {
         alert('필수 입력사항 입니다.');
         return;
       }
+
       loginApi(axios, userid, password, setAuth);
     },
-    [userid, password, axios, setAuth],
+    [userid, password, axios, setAuth, validationCheck],
   );
 
   useEffect(() => {
-    if (auth.token && auth.token !== '') {
+    if (auth.token && auth.token !== '' && auth.userid === 'grace09') {
       history.push('/todo-list');
     }
   }, [history, auth]);

@@ -14,7 +14,7 @@ const loginApi = async (axios, userid, password, setAuth) => {
     ) {
       setAuth({ userid: userid, token: response.data });
     } else {
-      alert('로그인에 실패하셨습니다. ');
+      setAuth({ userid: '', token: '' });
     }
   } catch (error) {
     console.log(error);

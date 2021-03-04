@@ -16,12 +16,12 @@ const TodoItem = ({ id, text, done }) => {
         todo.id === id ? { ...todo, done: !todo.done } : todo,
       ),
     );
-  }, [todos]);
+  }, [axios, id, done, todos, setTodos]);
 
   const onRemove = useCallback(() => {
     todoDeleteApi(axios, id);
     setTodos(todos.filter((todo) => todo.id !== id));
-  }, [todos, axios]);
+  }, [axios, id, todos, setTodos]);
 
   return (
     <div id="item">

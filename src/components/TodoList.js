@@ -7,14 +7,15 @@ const TodoList = () => {
 
   return (
     <div id="todo_list">
-      {todos && todos.map((todo) => (
-        <TodoItem
-          id={todo.id}
-          text={todo.text}
-          done={todo.done}
-          key={todo.id}
-        />
-      ))}
+      {todos &&
+        todos.map((todo) => (
+          <TodoItem
+            id={todo.id}
+            text={todo.text}
+            done={todo.done}
+            key={todo.id}
+          />
+        ))}
     </div>
   );
 };

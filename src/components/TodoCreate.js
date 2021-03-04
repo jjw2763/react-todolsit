@@ -7,33 +7,34 @@ import todoCreateApi from '../api/todoCreateApi';
 const TodoCreate = () => {
   const [value, setValue] = useState('');
   const [open, setOpen] = useState(false);
-  const { todos, setTodos } = useContext(TodoContext);
+  const { todos, setTodos, todo_id } = useContext(TodoContext);
   const { axios } = useContext(AxiosContext);
 
   const onToggle = () => setOpen(!open);
 
-  const onChange = useCallback((e) => {
-    setValue(e.target.value);
-  }, []);
-
   const onInsert = useCallback(
     (text) => {
       const todo = {
+        id: todo_id.current,
         text,
         done: false,
       };
 
       todoCreateApi(axios, todo);
       setTodos(todos.concat(todo));
+      todo_id.current += 1;
     },
-    [todos, axios],
+    [todos, setTodos, todo_id, axios],
   );
 
-  const onSubmit = useCallback((e) => {
-    e.preventDefault(); // 기본동작 하지 않도록
-    onInsert(value);
-    setValue('');
-  });
+  const onSubmit = useCallback(
+    (e) => {
+      e.preventDefault(); // 기본동작 하지 않도록
+      onInsert(value);
+      setValue('');
+    },
+    [value, setValue, onInsert],
+  );
 
   return (
     <>
@@ -43,9 +44,11 @@ const TodoCreate = () => {
             <input
               id="input_insert"
               autoFocus
-              placeholder="할 일을 입력 후, Enter를 누르세요" 
+              placeholder="할 일을 입력 후, Enter를 누르세요"
               value={value}
-              onChange={onChange}
+              onChange={(e) => {
+                setValue(e.target.value);
+              }}
             />
             {/* form 태그 내 input이 1개인 경우 엔터키를 누르면 submit 된다 */}
           </form>
